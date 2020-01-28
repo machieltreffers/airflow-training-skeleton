@@ -10,7 +10,7 @@ args = {
 dag = DAG(
     dag_id='my_first_dag_v2',
     default_args=args,
-    schedule_interval='None',
+    schedule_interval='@daily',
     #    dagrun_timeout=timedelta(minutes=60),
 )
 
@@ -39,5 +39,7 @@ run_fifth = DummyOperator(
     dag=dag,
 )
 
-run_first >> run_second >> run_third >> run_fifth
-run_second >> run_fourth >> run_fifth
+run_first >> run_second
+
+#run_first >> run_second >> run_third >> run_fifth
+#run_second >> run_fourth >> run_fifth
