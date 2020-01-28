@@ -12,7 +12,8 @@ args = {
 dag = DAG(
     dag_id='my_first_dag_v2',
     default_args=args,
-    schedule_interval='@daily',
+    #    schedule_interval='45 13 * * 1,3,5',
+    schedule_interval=timedelta(minutes=150),
     #    dagrun_timeout=timedelta(minutes=60),
 )
 
