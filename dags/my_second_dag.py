@@ -21,7 +21,7 @@ dag = DAG(
 
 
 def _print_exec_date(**context):
-    print(context["execution_date"])
+    print("This is my execution date:" + context["execution_date"])
 
 
 print_execution_date = PythonOperator(
