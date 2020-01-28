@@ -8,10 +8,10 @@ args = {
 }
 
 dag = DAG(
-    dag_id='example_bash_operator',
+    dag_id='my_first_dag_v2',
     default_args=args,
     schedule_interval='None',
-#    dagrun_timeout=timedelta(minutes=60),
+    #    dagrun_timeout=timedelta(minutes=60),
 )
 
 run_first = DummyOperator(
