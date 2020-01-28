@@ -8,13 +8,13 @@ from airflow.operators.dummy_operator import DummyOperator
 
 args = {
     'owner': 'mtreffers',
-    'start_date': datetime(2020, 1, 27),
+    'start_date': datetime(2020, 1, 1),
 }
 
 dag = DAG(
     dag_id='my_third_dag',
     default_args=args,
-    schedule_interval=timedelta(minutes=150),
+    schedule_interval='@daily',
 )
 
 
