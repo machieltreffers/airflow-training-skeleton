@@ -1,5 +1,3 @@
-from datetime import timedelta
-
 import airflow
 from airflow.models import DAG
 from airflow.operators.dummy_operator import DummyOperator
@@ -13,7 +11,7 @@ dag = DAG(
     dag_id='example_bash_operator',
     default_args=args,
     schedule_interval='None',
-    dagrun_timeout=timedelta(minutes=60),
+#    dagrun_timeout=timedelta(minutes=60),
 )
 
 run_first = DummyOperator(
