@@ -1,4 +1,4 @@
-# Apache Airflow training
+# Apache Airflow training  
 
 This project serves as a skeleton project on which Airflow training participants build exercises. There are two versions, one cloud based training and one on-premise based training.
 
