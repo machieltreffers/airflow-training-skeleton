@@ -21,7 +21,7 @@ dag = DAG(
 
 
 def _print_exec_date(**context):
-    print("This is my execution date:" + str(context["execution_date"]))
+    print("This is my execution date: " + str(context["execution_date"]))
 
 
 print_execution_date = PythonOperator(
@@ -31,31 +31,39 @@ print_execution_date = PythonOperator(
     dag=dag,
 )
 
-wait_5 = BashOperator(
-    task_id='wait_5',
-    bash_command='sleep 5',
-    dag=dag,
-)
-
-wait_1 = BashOperator(
-    task_id='wait_1',
-    bash_command='sleep 1',
-    dag=dag,
-)
-
-wait_10 = BashOperator(
-    task_id='wait_10',
-    bash_command='sleep 10',
-    dag=dag,
-)
+for i in (1, 5, 10):
+    wait = BashOperator(
+        task_id=f"wait_{i}",
+        bash_command=f"sleep {i}"
+    )
 
 
+# wait_5 = BashOperator(
+#     task_id='wait_5',
+#     bash_command='sleep 5',
+#     dag=dag,
+# )
+#
+# wait_1 = BashOperator(
+#     task_id='wait_1',
+#     bash_command='sleep 1',
+#     dag=dag,
+# )
+#
+# wait_10 = BashOperator(
+#     task_id='wait_10',
+#     bash_command='sleep 10',
+#     dag=dag,
+# )
+#
+#
 the_end = DummyOperator(
     task_id='the_end',
     dag=dag,
 )
 
+print_execution_date >> wait >> the_end
 
-print_execution_date >> wait_5 >> the_end
-print_execution_date >> wait_1 >> the_end
-print_execution_date >> wait_10 >> the_end
+#print_execution_date >> wait_5 >> the_end
+#print_execution_date >> wait_1 >> the_end
+#print_execution_date >> wait_10 >> the_end
