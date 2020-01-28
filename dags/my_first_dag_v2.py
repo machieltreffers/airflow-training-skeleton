@@ -6,7 +6,7 @@ from airflow.operators.dummy_operator import DummyOperator
 
 args = {
     'owner': 'mtreffers',
-    'start_date': local_tz.convert(datetime(2020, 1, 1)),
+    'start_date': datetime(2020, 1, 1),
 }
 
 dag = DAG(
