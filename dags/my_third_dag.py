@@ -25,9 +25,9 @@ def _get_weekday(execution_date, **context):
 
     if weekday == "Mon":
         person="email_bob"
-    eif weekday == "Wed":
+    elif weekday == "Wed":
         person="email_alice"
-    eif weekday == "Fri":
+    elif weekday == "Fri":
         person="email_joe"
     else:
         person="unkown"
