@@ -1,10 +1,12 @@
+from datetime import datetime, timedelta
+
 import airflow
 from airflow.models import DAG
 from airflow.operators.dummy_operator import DummyOperator
 
 args = {
     'owner': 'mtreffers',
-    'start_date': airflow.utils.dates.days_ago(2),
+    'start_date': local_tz.convert(datetime(2020, 1, 1)),
 }
 
 dag = DAG(
@@ -39,7 +41,5 @@ run_fifth = DummyOperator(
     dag=dag,
 )
 
-run_first >> run_second
-
-#run_first >> run_second >> run_third >> run_fifth
-#run_second >> run_fourth >> run_fifth
+run_first >> run_second >> run_third >> run_fifth
+run_second >> run_fourth >> run_fifth
