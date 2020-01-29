@@ -29,7 +29,7 @@ get_exchange_rate = HttpToGcsOperator(
 
 dataproc_cluster_create = DataprocClusterCreateOperator(
     task_id='dataproc_cluster_create',
-    projectid='airflowbolcom-jan2829-e6b55095',
+    project_id='airflowbolcom-jan2829-e6b55095',
     num_workers='5',
     cluster_name='compute_stats',
     dag=dag,
