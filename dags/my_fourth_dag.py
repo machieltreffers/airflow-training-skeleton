@@ -26,7 +26,7 @@ postgres_to_gcs = PostgresToGoogleCloudStorageOperator(
            where transfer_date = '{{ execution_date }}'
            ;""",
     bucket="airflow_exercise_4",
-    filename="foobar",
+    filename="{{ execution_date}}_exercise4_{}.json",
     provide_context=True,
     dag=dag,
 )
