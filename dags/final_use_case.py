@@ -35,4 +35,11 @@ dataproc_cluster_create = DataprocClusterCreateOperator(
     dag=dag,
 )
 
+calculate_rates = DataProcPySparkOperator(
+    task_id='calculate_rates',
+
+    dag=dag,
+
+)
+
 get_exchange_rate >> dataproc_cluster_create
