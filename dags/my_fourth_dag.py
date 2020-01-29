@@ -6,7 +6,8 @@ from airflow.models import DAG
 #from airflow.operators.python_operator import PythonOperator,BranchPythonOperator
 #from airflow.operators.dummy_operator import DummyOperator
 from airflow.contrib.operators.postgres_to_gcs_operator import PostgresToGoogleCloudStorageOperator
-from airflow.contrib.operators.gcs_delete_operator import GoogleCloudStorageDeleteOperator
+#from airflow.contrib.operators.gcs_delete_operator import GoogleCloudStorageDeleteOperator
+from operators.gcs_delete_operator import GoogleCloudStorageDeleteOperator
 
 
 args = {
