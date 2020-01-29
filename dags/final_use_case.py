@@ -31,7 +31,7 @@ dataproc_cluster_create = DataprocClusterCreateOperator(
     task_id='dataproc_cluster_create',
     project_id='airflowbolcom-jan2829-e6b55095',
     num_workers='5',
-    cluster_name='compute_stats',
+    cluster_name='computeStats',
     dag=dag,
 )
 
