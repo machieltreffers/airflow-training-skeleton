@@ -17,13 +17,13 @@ dag = DAG(
     schedule_interval='@daily',
 )
 
-http_to_gcs = HttpToGcsOperator(
+get_exchange_rate = HttpToGcsOperator(
     task_id='http_to_gcs',
     http_conn_id='http_final_use_case',
     endpoint='history?start_at=2018-01-01&end_at=2018-01-04&symbols=EUR&base=GBP',
     gcs_bucket='final_use_case',
-    gcs_path='foobar',
+    gcs_path='exchange_rates/{{ ds_nodash }}_exchange_rates_{}.json',
     dag=dag,
 )
 
-http_to_gcs
+get_exchange_rate
