@@ -20,7 +20,7 @@ dag = DAG(
 
 postgres_to_gcs = PostgresToGoogleCloudStorageOperator(
     task_id='postgres_to_gcs',
-    postres_conn_id='postgres_gdd',
+    postgres_conn_id='postgres_gdd',
     sql="""select *
            from public.land_registry_price_paid_uk
            where transfer_date = '2003-12-17'
