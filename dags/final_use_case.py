@@ -22,6 +22,7 @@ http_to_gcs = HttpToGcsOperator(
     http_conn_id='http_final_use_case',
     endpoint='history?start_at=2018-01-01&end_at=2018-01-04&symbols=EUR&base=GBP',
     gcs_bucket='final_use_case',
+    gcs_path='foobar',
     dag=dag,
 )
 
