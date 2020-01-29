@@ -23,7 +23,7 @@ postgres_to_gcs = PostgresToGoogleCloudStorageOperator(
     postgres_conn_id='postgres_gdd',
     sql="""select *
            from public.land_registry_price_paid_uk
-           where transfer_date = {{ execution_date }}
+           where transfer_date = {{ execution_date.strftime('%Y-%m-%d') }}
            ;""",
     bucket="airflow_exercise_4",
     filename="foobar",
