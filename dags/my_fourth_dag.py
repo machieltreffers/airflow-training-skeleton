@@ -7,7 +7,7 @@ from airflow.models import DAG
 #from airflow.operators.dummy_operator import DummyOperator
 from airflow.contrib.operators.postgres_to_gcs_operator import PostgresToGoogleCloudStorageOperator
 #from airflow.contrib.operators.gcs_delete_operator import GoogleCloudStorageDeleteOperator
-from operators.gcs_delete_operator import GoogleCloudStorageDeleteOperator
+#from operators.gcs_delete_operator import GoogleCloudStorageDeleteOperator
 
 
 args = {
@@ -21,13 +21,13 @@ dag = DAG(
     schedule_interval='@daily',
 )
 
-clear_bucket = GoogleCloudStorageDeleteOperator(
-    task_id='clear_bucket',
-    bucket_name="airflow_exercise_4",
-    prefix="exercise4_",
-    dag=dag,
-
-)
+#clear_bucket = GoogleCloudStorageDeleteOperator(
+#    task_id='clear_bucket',
+#    bucket_name="airflow_exercise_4",
+#    prefix="exercise4_",
+#    dag=dag,
+#
+#)
 
 postgres_to_gcs = PostgresToGoogleCloudStorageOperator(
     task_id='postgres_to_gcs',
@@ -42,7 +42,7 @@ postgres_to_gcs = PostgresToGoogleCloudStorageOperator(
     dag=dag,
 )
 
-clear_bucket >> postgres_to_gcs
+postgres_to_gcs
 
 # select *
 # from public.land_registry_price_paid_uk
